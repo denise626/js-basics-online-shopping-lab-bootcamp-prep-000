@@ -56,25 +56,25 @@ function addCartView() {
     cartView += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
   }
   if ( getCart().length >= 2 ) {
-    var middleCartItemsDescription = ''
+    var otherCartItemsView = ''
     for (var i=1; i<getCart().length -1; i++) {
-      middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+      otherCartItemsView += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
     }
-    cartView += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+    cartView += `${otherCartItemsView}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
   }
 
-  return `${cartDescription}.`
+  return `${cartView}.`
 }
 
 function searchCartForItemToRemove(itemName) {
-  var searchResult
+  var searchItems
   for (var i=0; i<getCart().length; i++) {
     if (getCart()[i].itemName === itemName) {searchResult = getCart()[i]}
   }
-  return searchResult
+  return searchItems
 }
 
-function sumUpPrices() {
+function sumOfAllPrices() {
   var sum = 0
   for (var i=0; i<getCart().length; i++) {
     sum = sum + getCart()[i].itemPrice
