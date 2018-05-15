@@ -69,7 +69,7 @@ function addCartView() {
 function searchCartForItemToRemove(itemName) {
   var searchItems
   for (var i=0; i<getCart().length; i++) {
-    if (getCart()[i].itemName === itemName) {searchResult = getCart()[i]}
+    if (getCart()[i].itemName === itemName) {searchItems = getCart()[i]}
   }
   return searchItems
 }
