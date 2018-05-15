@@ -50,17 +50,17 @@ function addCartItem(itemName) {
   }
 }
 
-function generateCartDescription() {
-  var cartDescription = 'In your cart, you have '
+function addCartView() {
+  var cartView = 'In your cart, you have '
   if ( getCart().length >= 1 ) {
-    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
+    cartView += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
   }
   if ( getCart().length >= 2 ) {
     var middleCartItemsDescription = ''
     for (var i=1; i<getCart().length -1; i++) {
       middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
     }
-    cartDescription += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
+    cartView += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
   }
 
   return `${cartDescription}.`
