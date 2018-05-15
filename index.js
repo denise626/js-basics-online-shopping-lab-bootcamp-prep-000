@@ -10,36 +10,35 @@ function setCart(c) {
 }
 
 function addToCart(item) {
-  var item = generateCartItem(item)
+  var item = addCartItem(item)
   getCart().push(item)
   return `${item.itemName} has been added to your cart.`
 }
 
 function viewCart() {
-  return getCart().length === 0 ? "Your shopping cart is empty." : generateCartDescription()
+  return getCart().length === 0 ? "Your shopping cart is empty." : addCartView()
 }
 
 function total() {
-  var sum = sumUpPrices()
+  var sum = sumOfAllPrices()
   return sum
 }
 
 function removeFromCart(itemName) {
-  var itemToRemove = searchCartForItemToRemove(itemName)
-  return itemToRemove ? removeItemFromCart(itemToRemove) : notifyUserThereIsNoItemToRemove()
+  var removedItem = searchCartForItemToRemove(itemName)
+  return removedItem ? removeItemFromCart(itemToRemove) : tellCustomerNoRemovableItems()
 }
 
 function placeOrder(cardNumber) {
   if (arguments[0] === undefined) {
     return "Sorry, we don't have a credit card on file for you."
   } else {
-    var sumToCharge = total()
+    var amountToCharge = total()
     setCart([])
-    return `Your total cost is $${sumToCharge}, which will be charged to the card ${cardNumber}.`
+    return `Your total cost is $${amountToCharge}, which will be charged to the card ${cardNumber}.`
   }
 }
 
-// helper functions
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
