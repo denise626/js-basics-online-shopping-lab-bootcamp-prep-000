@@ -43,7 +43,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateCartItem(itemName) {
+function addCartItem(itemName) {
   return {
     itemName:itemName,
     itemPrice:getRandomInt(1, 100)
