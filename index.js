@@ -86,7 +86,7 @@ function tellCustomerNoRemovableItemsInCart() {
   return 'That item is not in your cart.'
 }
 
-function removeItemFromCart(itemToRemove) {
+function removeItemFromCart(removedItem) {
   var indexOfItemToRemove = cart.indexOf(itemToRemove)
   getCart().splice(indexOfItemToRemove,1)
 }
